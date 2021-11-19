@@ -19,6 +19,13 @@ pipeline
                 git branch: 'main', url: 'https://github.com/pradeepmotappa/shellscripts.git'
             }
         }
+        stage('Change Permission')
+        {
+            steps
+            {
+                chmod "755 ${WORKSPACE}/bashscript.sh"
+            }
+        }
         stage('Script Run')
         {
             steps
