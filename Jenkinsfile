@@ -23,7 +23,10 @@ pipeline
         {
             steps
             {
+                sh "pwd"
+                sh "ls -l ${WORKSPACE}/"
                 sh "chmod 755 ${WORKSPACE}/bashscript.sh"
+                sh "ls -l ${WORKSPACE}/"
             }
         }
         stage('Script Run')
