@@ -23,7 +23,7 @@ pipeline
         {
             steps
             {
-                chmod "755 ${WORKSPACE}/bashscript.sh"
+                sh "chmod 755 ${WORKSPACE}/bashscript.sh"
             }
         }
         stage('Script Run')
