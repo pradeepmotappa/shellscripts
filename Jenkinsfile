@@ -12,28 +12,25 @@ pipeline
     }
     stages
     {
-        stage('Git Poll')
+        stage("Git Pull")
         {
             steps
             {
                 git branch: 'main', url: 'https://github.com/pradeepmotappa/shellscripts.git'
             }
         }
-        stage('Change Permission')
+        stage("File Permission")
         {
             steps
             {
-                sh "pwd"
-                sh "ls -l ${WORKSPACE}/"
-                sh "chmod 755 ${WORKSPACE}/bashscript.sh"
-                sh "ls -l ${WORKSPACE}/"
+                sh 'chmod 755 ${WORKSPACE}/*.sh'
             }
         }
-        stage('Script Run')
+        stage("Run Shell Script")
         {
             steps
             {
-                sh "${WORKSPACE}/bashscript.sh"
+                sh '${WORKSPACE}/bashscript.sh'
             }
         }
     }
